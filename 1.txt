@@ -1,0 +1,46 @@
+Tamamdır dostum. Sorunu çözdük. O yeni bilgisayardaki (murad) kurulum cehenneminden sonra, artık başka bir PC'ye nasıl sıfırdan, hatasız kurulum yapacağımızı biliyoruz.
+
+İşte başka bir PC'ye kurulum yapmak için "oto-yükleme" rehberi.
+
+Senin de dediğin gibi, o bilgisayarda Python, VS Code (isteğe bağlı) ve Microsoft Excel'in kurulu olduğunu varsayıyorum.
+
+Projemizin ihtiyaç duyduğu tüm kütüphaneleri (eklentileri) tek bir dosyada toplamak en profesyonel yöntemdir. Sana bu "gereksinimler" listesini bir dosya olarak hazırlıyorum.
+Python Kütüphaneleri (Gereksinimler)
+5 Kas 10:51
+
+Yeni PC'ye Sıfırdan Kurulum (Adım Adım)
+İşte o yeni bilgisayarda yapman gerekenler:
+
+1. Adım: Python Kurulumu (ÇOK ÖNEMLİ)
+Yaşadığımız pyarrow ve numpy C++ derleme hatalarını (cl.exe hatası) tekrar yaşamamak için, o yeni bilgisayara Python'un en son sürümünü (3.12+ veya 3.14+) KURMA.
+
+python.org sitesine git ve Python 3.11 indir. (Bu sürüm, tüm kütüphanelerin hazır paketlerine sahip olduğu için en stabil olanıdır).
+
+Kurulumu yaparken, en alttaki "Add Python to PATH" kutucuğunu MUTLAKA İŞARETLE. (Bu, py ve pip komutlarının çalışması için şarttır).
+
+2. Adım: Proje Dosyalarını Kopyala
+Matrix_Analiz_Motoru klasörünün tamamını (içindeki 4 .py dosyası, Excel_Verileri klasörü ve yukarıda verdiğim yeni requirements.txt dosyası) o bilgisayarın Masaüstü'ne kopyala.
+
+3. Adım: Kütüphanelerin "Oto-Yüklenmesi" (CMD)
+Bu, senin sorduğun "oto-yükleme" adımı.
+
+Yeni bilgisayarda CMD'yi (Komut İstemi) Yönetici olarak aç.
+
+Proje klasörüne git:
+
+Bash
+
+cd Desktop\Matrix_Analiz_Motoru
+3.  Aşağıdaki **tek komutu** çalıştır. Bu komut, `requirements.txt` dosyasını okuyacak ve listedeki 5 kütüphaneyi otomatik olarak yükleyecektir:
+```bash
+py -m pip install -r requirements.txt
+    *(`py -m pip` kullanıyoruz çünkü bu, `pip` komutu PATH'de bulunamasa bile çalışmanın garantili yoludur.)*
+
+4. Adım: Projeyi Çalıştır
+Kütüphaneler yüklendikten sonra (CMD'de Successfully installed... yazısını görmelisin), aynı CMD penceresinde sistemi başlat:
+
+Bash
+
+python start_app.py
+
+Bu kadar. Artık py -m pip install streamlit pandas numpy openpyxl pywin32 diye uzun uzun yazmana gerek yok. requirements.txt dosyası, bu kurulumu "otomatik" hale getirir.
